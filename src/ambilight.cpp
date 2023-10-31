@@ -1,6 +1,6 @@
 #include "ambilight.h"
 
-#define AMBILIGHT_PIN D7
+#define AMBILIGHT_PIN 3
 
 static WS2812FX *ws2812fx;
 

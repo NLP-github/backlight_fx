@@ -1,12 +1,11 @@
 #include <Arduino.h>
 #include <Homie.h>
 #include "ambilight.h"
-#include "pulse.h"
 
 
-#define BRAND "FlashDOORs"
+#define BRAND "Ambilight"
 #define FW_NAME "illuminated"
-#define FW_VER "1.2.0"
+#define FW_VER "1.2.1"
 
 void onHomieEvent(const HomieEvent &event){
   switch (event.type){
@@ -28,7 +27,6 @@ void onHomieEvent(const HomieEvent &event){
 }
 
 ambilightNode AmbilightNode("ambilight", "Ambilight", "WS2812B");
-pulseNode PulseNode("buttons", "ISR", "interrupt");
 
 void setup() {
   Serial.begin(115200);
@@ -38,7 +36,6 @@ void setup() {
   Homie_setFirmware(FW_NAME, FW_VER);
   Homie.onEvent(onHomieEvent);
   AmbilightNode.ambilightSetup();
-  PulseNode.pulseSetup();
   Homie.setup();
 }
 
