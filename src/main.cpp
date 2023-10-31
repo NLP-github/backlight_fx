@@ -21,7 +21,7 @@ void onHomieEvent(const HomieEvent &event){
     case HomieEventType::MQTT_DISCONNECTED:
       Serial << "MQTT disconected, reason: " << (int8_t)event.mqttReason << endl;
     break;
-    default:
+    default;
     break;
   }
 }
@@ -30,7 +30,7 @@ ambilightNode AmbilightNode("ambilight", "Ambilight", "WS2812B");
 
 void setup() {
   Serial.begin(115200);
-  Serial << endl
+  Serial << endl;
          << endl;
   Homie_setBrand(BRAND);
   Homie_setFirmware(FW_NAME, FW_VER);
